@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --disabled: #e3daf9;
+  --primary: #6e41e2;
+  --hover: #5835b0;
+  --active: #472c8a;
+  --white: #ffffff;
+  --whites: rgba(255, 255, 255, 0.88);
+  --graym: #fafafa;
+  --grayl: #f1f1f1;
+  --grays: #d4d4d4;
+  --gray: #rgba(17, 17, 17, 0.48);
+  --grayk: #6b6b6b;
+  --black: #111;
+  --redgirl: #f9e3e3;
+  --redboy: #f9e3e3;
+  --red: #db524e;
+  --superred: #c7302b;
+  --green: #27ae60;
+  --bluetest: #428bf9;
+} */
