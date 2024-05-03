@@ -115,7 +115,7 @@ const InputFile: React.FC<Props> = ({
 		}
 	};
 	return (
-		<div className="w-max">
+		<div className="w-full max-w-max">
 			<label htmlFor={id} className="text-[16px] font-[600] text-primary mb-[8px] ms-[8px]">
 				{label} {required && <span className="text-red">*</span>}
 			</label>
