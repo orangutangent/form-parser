@@ -16,7 +16,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link rel="icon" href="./formIcon.svg" />
+				<link rel="icon" href="/docIcon.svg" />
 			</head>
 			<body className={montserrat.className}>{children}</body>
 		</html>

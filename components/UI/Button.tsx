@@ -23,7 +23,7 @@ const Button: React.FC<Props> = ({
 				onClick={onClick}
 				type={type}
 				disabled={disabled}
-				className={`min-h-[44px] w-max border-2 flex box-border justify-center items-center px-[20px]  rounded-[4px] border-primary bg-primary text-[16px] text-primary
+				className={`min-h-[44px] w-fit border-2 flex box-border justify-center items-center px-[20px]  rounded-[4px] border-primary bg-primary text-[16px] text-primary
                  bg-opacity-0
                  hover:bg-opacity-[0.04]
                  active:bg-opacity-[0.16] active:scale-95 duration-200 ease-in-out
@@ -55,7 +55,7 @@ const Button: React.FC<Props> = ({
 			<button
 				onClick={onClick}
 				disabled={disabled}
-				className={`min-h-[44px] border-2 box-border w-max flex justify-center items-center py-[10px] px-[20px] rounded-[4px] bg-primary text-[16px] text-white
+				className={`min-h-[44px] border-2 box-border w-fit flex justify-center items-center py-[10px] px-[20px] rounded-[4px] bg-primary text-[16px] text-white
                  hover:bg-hover
                  active:bg-active active:scale-95 duration-200 ease-in-out
                  focus:border-2 focus:border-gray-500
