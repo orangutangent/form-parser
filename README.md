@@ -1,8 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Динамический парсер форм представляет собой веб-приложение, целью которого является загрузка и отображение форм, описанных в формате JSON. Пользователь имеет возможность загрузить JSON файл с описанием формы, после чего происходит парсинг этого файла и динамическое создание соответствующей формы на странице.
+
+NodeJS: v20.9.0
 
 ## Getting Started
 
-First, run the development server:
+git clone "https://github.com/orangutangent/form-parser.git"
+
+run the development server:
 
 ```bash
 npm run dev

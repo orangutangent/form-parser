@@ -61,13 +61,7 @@ const Form: React.FC<Props> = ({ formConfig, setFormConfig }) => {
 							<InputSelect key={field.id} {...field} onChange={(value) => setForm({ ...form, [field.id]: value })} />
 						);
 					} else if (field.type === 'checkbox') {
-						return (
-							<InputCheckbox
-								key={field.id}
-								{...field}
-								onChange={(e) => setForm({ ...form, [field.id]: e.target.checked })}
-							/>
-						);
+						return <InputCheckbox key={field.id} {...field} onChange={(e) => setForm({ ...form, [field.id]: e })} />;
 					} else if (field.type === 'color') {
 						return (
 							<InputColor key={field.id} {...field} onChange={(value) => setForm({ ...form, [field.id]: value })} />

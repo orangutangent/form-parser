@@ -2,18 +2,13 @@
 import React, { useState } from 'react';
 import Button from '@/components/UI/Button';
 import FormFileInput from '@/components/FormFileInput';
-import closeIcon from '@/public/closeIcon.svg';
-import InputTextarea from '@/components/UI/Input/InputTextarea';
-import InputFile from '@/components/UI/Input/InputFile';
 import { useFile } from '@/hooks/useFile';
-import InputText from '@/components/UI/Input/InputText';
-import InputSelect from '@/components/UI/Input/InputSelect';
-import InputPassword from '@/components/UI/Input/InputPassword';
-import InputCheckbox from '@/components/UI/Input/InputCheckbox';
-import InputColor from '@/components/UI/Input/InputColor';
+import { usePopup } from '@/hooks/usePopup';
 import Form from '@/components/Form';
+import Popup from '@/components/UI/Popup';
 
 export default function Home() {
+	const { setOpen, setClose } = usePopup();
 	const { file, setFile } = useFile();
 	const [formConfig, setFormConfig] = useState<any>(null);
 
@@ -36,14 +31,21 @@ export default function Home() {
 		}
 	}, [file]);
 
+	const onReset = () => {
+		setFormConfig(null);
+		setFile(null);
+	};
+
 	return (
 		<main className="w-full min-h-screen flex flex-col items-center px-[20px]">
+			<Popup label="Do you want to reset?" onSubmit={onReset} actionLabel="Reset" />
 			<div className="w-full max-w-[675px] flex flex-col gap-8 mt-[40px]">
 				<FormFileInput />
 				<div className="w-full flex justify-end">
-					<Button label="Reset" secondary onClick={() => setFile(null)} />
+					<Button label="Reset" secondary onClick={() => setOpen()} />
 				</div>
 			</div>
+			{/* <InputCheckbox label="test" required onChange={(e) => console.log(e.target.checked)} id={''} /> */}
 
 			{formConfig && <Form formConfig={formConfig} setFormConfig={setFormConfig} />}
 		</main>

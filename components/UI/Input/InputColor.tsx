@@ -15,6 +15,11 @@ interface Props {
 const InputColor: React.FC<Props> = ({ id, label, required, options = [], onChange }) => {
 	const inputRef = React.useRef<HTMLInputElement | null>(null);
 	const [selectedOption, setSelectedOption] = React.useState(options[0]);
+	React.useEffect(() => {
+		if (onChange && inputRef.current) {
+			onChange(inputRef.current.value);
+		}
+	}, []);
 	const [open, isOpen] = React.useState(false);
 	const variants = {
 		open: { rotate: 180 },

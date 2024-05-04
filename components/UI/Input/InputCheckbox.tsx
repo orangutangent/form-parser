@@ -7,11 +7,16 @@ interface Props {
 	label: string;
 	required: boolean;
 	disabled?: boolean;
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	onChange?: (value: any) => void;
 }
 
 const InputCheckbox: React.FC<Props> = ({ id, label, required, disabled, onChange }) => {
 	const inputRef = React.useRef<HTMLInputElement | null>(null);
+	React.useEffect(() => {
+		if (onChange && inputRef.current) {
+			onChange(inputRef.current.checked);
+		}
+	}, []);
 
 	const handleClick = () => {
 		if (inputRef.current) {
@@ -24,7 +29,7 @@ const InputCheckbox: React.FC<Props> = ({ id, label, required, disabled, onChang
 	};
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		if (onChange) onChange(event);
+		if (onChange) onChange(event.target.checked);
 	};
 	return (
 		<div
@@ -32,9 +37,18 @@ const InputCheckbox: React.FC<Props> = ({ id, label, required, disabled, onChang
         ${disabled && 'opacity-[0.56] pointer-events-none'}`}
 		>
 			<input
-				className={`peer  rounded-[4px] border-[1px] border-gray
+				className={`peer appearance-none  rounded-[4px] border-[1px] border-gray flex-shrink-0
                  h-[24px] w-[24px] active:bg-grayl
                  focus:border-[3px] 
+				 after:content-['']
+				 after:absolute
+				 after:top-0
+				 after:left-0
+				 after:h-full
+				 after:w-full
+				 after:bg-no-repeat
+				 checked:after:bg-[url('../public/checkedIcon.svg')] checked:bg-primary
+				 checked:hover:bg-hover checked:active:bg-active
                   cursor-pointer`}
 				id={id}
 				type="checkbox"
@@ -45,7 +59,7 @@ const InputCheckbox: React.FC<Props> = ({ id, label, required, disabled, onChang
 			/>
 			<label
 				onClick={handleClick}
-				className="text-[16px] cursor-pointer hover:scale-[1.02] duration-200 ease-in-out active:scale-[0.98]"
+				className="text-[16px] cursor-pointer hover:scale-[102%] duration-200 ease-in-out active:scale-[98%]				"
 				htmlFor={id}
 			>
 				{label}
